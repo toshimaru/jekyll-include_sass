@@ -6,6 +6,6 @@ class Jekyll::IncludeSassTest < Minitest::Test
   end
 
   def test_it_does_something_useful
-    assert false
+    refute_nil ::Jekyll::Tags::IncludeSassTag
   end
 end

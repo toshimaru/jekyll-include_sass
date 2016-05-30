@@ -1,8 +1,3 @@
 require "jekyll"
 require "jekyll/include_sass/version"
-
-module Jekyll
-  module IncludeSass
-    # Your code goes here...
-  end
-end
+require "jekyll/tags/include_sass"
