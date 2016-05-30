@@ -9,19 +9,40 @@ class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
     refute_nil ::Jekyll::Tags::IncludeSassTag
   end
 
-# WIP
-
   def test_include_sass
     content = <<CONTENT
----
-title: include_sass test
----
-{% include_sass sass_file.sass %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  {% include_sass sass_file.sass %}
+  </style>
+</head>
+<body>
+</body>
+</html>
 CONTENT
 
     create_post(content, { "read_posts" => true })
+    assert_match "font: 100% Helvetica, sans-serif;", @result
+  end
 
-    assert_match "sass_file", @result
+  def test_include_scss
+    content = <<CONTENT
+<html>
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  {% include_sass scss_file.scss %}
+  </style>
+</head>
+<body>
+</body>
+</html>
+CONTENT
+
+    create_post(content, { "read_posts" => true })
+    assert_match "font: 100% Helvetica, sans-serif;", @result
   end
 
   def create_post(content, override = {}, converter_class = Jekyll::Converters::Markdown)
