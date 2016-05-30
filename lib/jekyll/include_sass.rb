@@ -1,3 +1,4 @@
+require "jekyll"
 require "jekyll/include_sass/version"
 
 module Jekyll
