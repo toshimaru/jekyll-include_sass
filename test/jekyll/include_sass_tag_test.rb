@@ -14,14 +14,14 @@ class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
   def test_include_sass
     content = <<CONTENT
 ---
-title: custom includes directory
+title: include_sass test
 ---
-{% include hoge.html %}
+{% include_sass sass_file.sass %}
 CONTENT
 
     create_post(content, { "read_posts" => true })
 
-    assert_match "custom_included", @result
+    assert_match "sass_file", @result
   end
 
   def create_post(content, override = {}, converter_class = Jekyll::Converters::Markdown)
