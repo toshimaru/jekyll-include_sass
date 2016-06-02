@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/jekyll-include_sass.svg)](https://badge.fury.io/rb/jekyll-include_sass)
 [![Build Status](https://travis-ci.org/toshimaru/jekyll-include_sass.svg)](https://travis-ci.org/toshimaru/jekyll-include_sass)
 
 # Jekyll::IncludeSass
