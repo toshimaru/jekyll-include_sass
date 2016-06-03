@@ -3,7 +3,15 @@
 
 # Jekyll::IncludeSass
 
-Jekyll include_sass tag which includes and converts SASS/SCSS file.
+Jekyll `include_sass` tag which includes and converts SASS/SCSS file. This is useful for Google AMP HTML.
+
+## Supported CSS in AMP
+
+> Like all web pages, AMP pages are styled with CSS, but you can’t reference external stylesheets.
+
+> All styles must live in the head of the document.
+
+via. [Supported CSS](https://www.ampproject.org/docs/guides/responsive/style_pages.html)
 
 ## Installation
 
@@ -20,12 +28,11 @@ Jekyll include_sass tag which includes and converts SASS/SCSS file.
     - jekyll-include_sass
   ```
 
-
 ## Usage
 
 Put your `style.scss` in Jekyll's `_includes` directory.
 
-### HTML version
+### HTML Version
 
 Add the following inside `<head>` in your site's template(s):
 
@@ -35,13 +42,17 @@ Add the following inside `<head>` in your site's template(s):
 </style>
 ```
 
-### AMP version
+### AMP Version
 
 ```html
 <style amp-custom>
 {% include_sass style.scss %}
 </style>
 ```
+
+### SASS/SCSS Supported
+
+You can include either SASS or SCSS with `include_sass` depending on extension.
 
 ## Contributing
 
