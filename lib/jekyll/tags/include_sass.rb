@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jekyll
   module Tags
     class IncludeSassTag < IncludeTag
@@ -12,7 +14,7 @@ module Jekyll
         when '.scss'
           scssify(super)
         else
-          raise "invalid!" # TODO
+          raise "Invalid file extension. Please specify sass or scss."
         end
       end
     end
