@@ -14,7 +14,7 @@ module Jekyll
         when '.scss'
           scssify(super)
         else
-          raise "Invalid file extension. Please specify sass or scss."
+          raise "Invalid file extension. Please specify sass or scss as a file."
         end
       end
     end
