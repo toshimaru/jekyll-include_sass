@@ -6,9 +6,12 @@ module Jekyll
       include Jekyll::Filters
 
       def render(context)
+        file = render_variable(context) || @file
+        validate_file_name(file)
+
         @context = context
 
-        case File.extname(@file)
+        case File.extname(file)
         when '.sass'
           sassify(super)
         when '.scss'
