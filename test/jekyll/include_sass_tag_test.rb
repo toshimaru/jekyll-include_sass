@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
   def test_include_sass
-    content = <<~CONTENT
+    content = <<~HTML
       <html>
       <head>
         <meta charset="utf-8">
@@ -15,14 +15,14 @@ class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
       <body>
       </body>
       </html>
-    CONTENT
+    HTML
 
     create_post(content)
     assert_match "font: 100% Helvetica, sans-serif;", @result
   end
 
   def test_include_scss
-    content = <<~CONTENT
+    content = <<~HTML
       <html>
       <head>
         <meta charset="utf-8">
@@ -33,7 +33,7 @@ class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
       <body>
       </body>
       </html>
-    CONTENT
+    HTML
 
     create_post(content)
     assert_match "font: 100% Helvetica, sans-serif;", @result
