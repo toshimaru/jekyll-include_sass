@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'jekyll-include_sass'
 
 require 'minitest/autorun'
@@ -6,11 +6,11 @@ require 'minitest/autorun'
 # ref. https://github.com/jekyll/jekyll/blob/master/test/helper.rb
 module DirectoryHelpers
   def dest_dir(*subdirs)
-    test_dir("dest", *subdirs)
+    test_dir('dest', *subdirs)
   end
 
   def source_dir(*subdirs)
-    test_dir("source", *subdirs)
+    test_dir('source', *subdirs)
   end
 
   def test_dir(*subdirs)
