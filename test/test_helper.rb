@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'jekyll-include_sass'
 
@@ -33,17 +35,13 @@ class JekyllUnitTest < Minitest::Test
   end
 
   def site_configuration(overrides = {})
-    full_overrides = build_configs(overrides, build_configs({
-      "destination" => dest_dir,
-      "incremental" => false
-    }))
-
-    build_configs({
-      "source" => source_dir
-    }, full_overrides)
-      .fix_common_issues
-      .backwards_compatibilize
-      .add_default_collections
+    full_overrides = build_configs(overrides, build_configs(
+                                                "destination" => dest_dir,
+                                                "incremental" => false
+                                              ))
+    Configuration.from(full_overrides.merge(
+                         "source" => source_dir
+                       ))
   end
 
   def dest_dir(*subdirs)

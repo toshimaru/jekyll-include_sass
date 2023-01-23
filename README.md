@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/jekyll-include_sass.svg)](https://badge.fury.io/rb/jekyll-include_sass)
-[![Build Status](https://travis-ci.org/toshimaru/jekyll-include_sass.svg)](https://travis-ci.org/toshimaru/jekyll-include_sass)
+[![CI](https://github.com/toshimaru/jekyll-include_sass/actions/workflows/ci.yml/badge.svg)](https://github.com/toshimaru/jekyll-include_sass/actions/workflows/ci.yml)
 
 # Jekyll::IncludeSass
 
@@ -32,7 +32,7 @@ via. [Supported CSS](https://www.ampproject.org/docs/guides/responsive/style_pag
 
 Put your `style.scss` in Jekyll's `_includes` directory.
 
-### HTML Version
+### for HTML
 
 Add the following inside `<head>` in your site's template(s):
 
@@ -42,7 +42,7 @@ Add the following inside `<head>` in your site's template(s):
 </style>
 ```
 
-### AMP Version
+### for AMP
 
 ```html
 <style amp-custom>
