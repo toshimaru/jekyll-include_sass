@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-# https://github.com/jekyll/jekyll/blob/master/test/test_tags.rb
+# ref. https://github.com/jekyll/jekyll/blob/master/test/helper.rb
 class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
   def test_include_sass
     content = <<~HTML
@@ -54,22 +54,25 @@ class Jekyll::Tags::IncludeSassTagTest < JekyllUnitTest
       </body>
       </html>
     HTML
-  
-    create_post(content, override: { "page" => { "css" => "scss_file.scss" } })
+
+    create_post(content, { "page" => { "css" => "scss_file.scss" } })
     assert_match "font: 100% Helvetica, sans-serif;", @result
   end
-  
+
   private
 
-  def create_post(content, override: {})
+  def create_post(content, override = {})
     site = fixture_site
+    @result = render_with(site, content, override)
+  end
 
-    info = { filters: [Jekyll::Filters], registers: { site: site } }
-    @converter = site.converters.find { |c| c.class == Jekyll::Converters::Markdown }
-    payload = { "highlighter_prefix" => @converter.highlighter_prefix,
-                "highlighter_suffix" => @converter.highlighter_suffix }.merge(override)
-
-    @result = Liquid::Template.parse(content).render!(payload, info)
-    @result = @converter.convert(@result)
+  def render_with(site, content, override = {})
+    converter = site.converters.find { |c| c.instance_of?(Jekyll::Converters::Markdown) }
+    payload   = { "highlighter_prefix" => converter.highlighter_prefix,
+                  "highlighter_suffix" => converter.highlighter_suffix, }.merge(override)
+    info = { :registers => { :site => site } }
+    converter.convert(
+      Liquid::Template.parse(content).render!(payload, info)
+    )
   end
 end
