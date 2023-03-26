@@ -25,3 +25,4 @@ module Jekyll
 end
 
 Liquid::Template.register_tag("include_sass", Jekyll::Tags::IncludeSassTag)
+Liquid::Template.register_tag("include_scss", Jekyll::Tags::IncludeSassTag)
