@@ -2,6 +2,10 @@
 
 module Jekyll
   module Tags
+    # Render sass or scss files
+    #
+    # Usage: {% include_sass file.sass %}
+    #        {% include_scss file.scss %}
     class IncludeSassTag < IncludeTag
       include Jekyll::Filters
 
@@ -17,12 +21,12 @@ module Jekyll
         when '.scss'
           scssify(super)
         else
-          raise "Invalid file extension. Please specify sass or scss as a file."
+          raise 'Invalid file extension. Please specify sass or scss as a file.'
         end
       end
     end
   end
 end
 
-Liquid::Template.register_tag("include_sass", Jekyll::Tags::IncludeSassTag)
-Liquid::Template.register_tag("include_scss", Jekyll::Tags::IncludeSassTag)
+Liquid::Template.register_tag('include_sass', Jekyll::Tags::IncludeSassTag)
+Liquid::Template.register_tag('include_scss', Jekyll::Tags::IncludeSassTag)
