@@ -4,6 +4,8 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'jekyll-include_sass'
 
 require 'minitest/autorun'
+require "minitest/reporters"
+Minitest::Reporters.use!
 
 # ref. https://github.com/jekyll/jekyll/blob/master/test/helper.rb
 module DirectoryHelpers
