@@ -4,8 +4,10 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'jekyll-include_sass'
 
 require 'minitest/autorun'
+require "minitest/reporters"
+Minitest::Reporters.use!
 
-# ref. https://github.com/jekyll/jekyll/blob/master/test/helper.rb
+# ref. https://github.com/jekyll/jekyll/blob/@/test/helper.rb
 module DirectoryHelpers
   def dest_dir(*subdirs)
     test_dir('dest', *subdirs)
@@ -56,3 +58,5 @@ class JekyllUnitTest < Minitest::Test
     File.join(File.dirname(__FILE__), *subdirs)
   end
 end
+
+require_relative 'jekyll/include_tag_test_base'
