@@ -7,6 +7,48 @@ module Jekyll::Tags
   class IncludeTagBase < JekyllUnitTest
     private
 
+    def include_sass_file_html(include_tag)
+      <<~HTML.freeze
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <style type="text/css">
+          {% #{include_tag} sass_file.sass %}
+          </style>
+        </head>
+        <body>HTML Body</body>
+        </html>
+      HTML
+    end
+
+    def include_scss_file_html(include_tag)
+      <<~HTML.freeze
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <style type="text/css">
+          {% #{include_tag} scss_file.scss %}
+          </style>
+        </head>
+        <body>HTML Body</body>
+        </html>
+      HTML
+    end
+
+    def include_with_variable_html(include_tag)
+      <<~HTML.freeze
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <style type="text/css">
+          {% #{include_tag} {{ page.css }} %}
+          </style>
+        </head>
+        <body>Your reading stylesheet is {{ page.css }}.</body>
+        </html>
+      HTML
+    end
+
     def create_post(content, override = {})
       site = fixture_site
       @result = render_with(site, content, override)
