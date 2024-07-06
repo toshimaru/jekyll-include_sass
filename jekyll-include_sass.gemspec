@@ -8,10 +8,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["toshimaru"]
   spec.email         = ["me@toshimaru.net"]
 
-  spec.summary       = %q{Jekyll include_sass tag which aincludes and converts SASS/SCSS file. Useful for AMP HTML!}
-  spec.description   = %q{Jekyll include_sass tag is a shorthand tag for including SASS/SCSS file inside head tag. It's useful when you don't want to reference external CSS, for example, in AMP.}
+  spec.summary       = 'Jekyll include_sass tag which aincludes and converts SASS/SCSS file. Useful for AMP HTML!'
+  spec.description   = "Jekyll include_sass tag is a shorthand tag for including SASS/SCSS file inside head tag. It's useful when you don't want to reference external CSS, for example, in AMP."
   spec.homepage      = "https://github.com/toshimaru/jekyll-include_sass"
   spec.license       = "MIT"
+
+  spec.metadata["homepage_uri"] = "https://github.com/toshimaru/jekyll-include_sass"
+  spec.metadata["source_code_uri"] = "https://github.com/toshimaru/jekyll-include_sass"
+  spec.metadata["changelog_uri"] = "https://github.com/toshimaru/jekyll-include_sass/releases"
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
