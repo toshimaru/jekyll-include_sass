@@ -8,7 +8,7 @@ module Jekyll::Tags
     private
 
     def include_sass_file_html(include_tag)
-      <<~HTML.freeze
+      <<~HTML
         <html>
         <head>
           <meta charset="utf-8">
@@ -22,7 +22,7 @@ module Jekyll::Tags
     end
 
     def include_scss_file_html(include_tag)
-      <<~HTML.freeze
+      <<~HTML
         <html>
         <head>
           <meta charset="utf-8">
@@ -36,7 +36,7 @@ module Jekyll::Tags
     end
 
     def include_with_variable_html(include_tag)
-      <<~HTML.freeze
+      <<~HTML
         <html>
         <head>
           <meta charset="utf-8">
